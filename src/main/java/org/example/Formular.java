@@ -7,6 +7,8 @@ import com.microsoft.playwright.Playwright;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+
 public class Formular {
     private Playwright playwright;
     private Browser prohlizec;
@@ -30,6 +32,7 @@ public class Formular {
         //stranka.pause();
         stranka.locator("#mobile").fill("3434383544");
 
+        assertThat(stranka.locator("#gender")).not().isChecked();
 
 
     }
