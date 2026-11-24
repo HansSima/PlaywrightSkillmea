@@ -23,7 +23,12 @@ public class Formular {
     public void formTest(){
         stranka.navigate("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
         stranka.locator("#name").fill("Petra");
+        stranka.locator("#email").fill("jan@email.com");
+
+        stranka.locator("#gender").check();
+        stranka.locator("xpath=/html/body/main/div/div/div[2]/form/div[3]/div/div/div[2]/input").check();
         //stranka.pause();
+        stranka.locator("#mobile").fill("3434383544");
 
 
 
