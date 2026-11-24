@@ -1,6 +1,7 @@
 package org.example;
 
 import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,16 +15,18 @@ public class Formular {
     @BeforeEach
     public void setUp(){
         playwright = Playwright.create();
-        prohlizec = playwright.chromium().launch();
+        prohlizec = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         stranka = prohlizec.newPage();
     }
 
     @Test
     public void formTest(){
         stranka.navigate("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
+        stranka.locator("#name").fill("Petra");
+        //stranka.pause();
+
 
 
     }
-
 
 }
