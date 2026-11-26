@@ -28,10 +28,12 @@ public class Formular {
         stranka.locator("#email").fill("jan@email.com");
 
         stranka.locator("#gender").check();
+        //Lokalizace a zaskrtnuti female
         stranka.locator("xpath=/html/body/main/div/div/div[2]/form/div[3]/div/div/div[2]/input").check();
         //stranka.pause();
         stranka.locator("#mobile").fill("3434383544");
 
+        assertThat(stranka.locator("xpath=/html/body/main/div/div/div[2]/form/div[3]/div/div/div[2]/input")).isChecked();
         assertThat(stranka.locator("#gender")).not().isChecked();
 
 
