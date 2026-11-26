@@ -4,6 +4,7 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +20,11 @@ public class Formular {
         playwright = Playwright.create();
         prohlizec = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         stranka = prohlizec.newPage();
+    }
+
+    @AfterEach
+    public void uklid(){
+        playwright.close();
     }
 
     @Test
@@ -37,7 +43,6 @@ public class Formular {
         //assertThat(stranka.locator("#gender")).not().isChecked();
         assertThat(stranka.locator("xpath=/html/body/main/div/div/div[2]/form/h1")).hasText("Student Registration Form");
         assertThat(stranka).hasURL("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
-
     }
 
 }
