@@ -47,11 +47,11 @@ public class FormularTest {
 
     @Then("Uzivatel vidi zaskrtnuto female")
     public void uzivatelVidiZaskrtnutoFemale() {
-        assertThat(stranka.locator("xpath=/html/body/main/div/div/div[2]/form/div[3]/div/div/div[2]/input")).isChecked();
+        formularPage.jeFemaleRadiobuttonZaskrtnut();
     }
 
     @And("Uzivatel vidi zaskrtnuto male")
     public void uzivatelVidiZaskrtnutoMale() {
-        assertThat(stranka.locator("#gender")).not().isChecked();
+        formularPage.jeMaleRadiobuttonZaskrtnut();
     }
 }
