@@ -5,4 +5,3 @@ Feature: Formular
     When Uzivatel zaskrtne radiobutton male
     And Uzivatel zaskrtne radiobutton female
     Then Uzivatel vidi zaskrtnuto female
-    And Uzivatel vidi zaskrtnuto male

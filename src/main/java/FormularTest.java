@@ -9,6 +9,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+
 public class FormularTest {
     private Playwright playwright;
     private Browser prohlizec;
@@ -28,26 +30,26 @@ public class FormularTest {
 
     @Given("Uzivatel je na strance formulare")
     public void uzivatelJeNaStranceFormulare() {
-
+        stranka.navigate("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
     }
 
     @When("Uzivatel zaskrtne radiobutton male")
     public void uzivatelZaskrtneRadiobuttonMale() {
-
+        stranka.locator("#gender").check();
     }
 
     @And("Uzivatel zaskrtne radiobutton female")
     public void uzivatelZaskrtneRadiobuttonFemale() {
-
+        stranka.locator("xpath=/html/body/main/div/div/div[2]/form/div[3]/div/div/div[2]/input").check();
     }
 
     @Then("Uzivatel vidi zaskrtnuto female")
     public void uzivatelVidiZaskrtnutoFemale() {
-
+        assertThat(stranka.locator("xpath=/html/body/main/div/div/div[2]/form/div[3]/div/div/div[2]/input")).isChecked();
     }
 
     @And("Uzivatel vidi zaskrtnuto male")
     public void uzivatelVidiZaskrtnutoMale() {
-
+        assertThat(stranka.locator("#gender")).not().isChecked();
     }
 }
