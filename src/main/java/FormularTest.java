@@ -15,12 +15,14 @@ public class FormularTest {
     private Playwright playwright;
     private Browser prohlizec;
     private Page stranka;
+    private FormularPage formularPage;
 
     @Before
     public void setUp(){
         playwright = Playwright.create();
         prohlizec = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         stranka = prohlizec.newPage();
+        formularPage = new FormularPage(stranka);
     }
 
     @After
@@ -35,7 +37,7 @@ public class FormularTest {
 
     @When("Uzivatel zaskrtne radiobutton male")
     public void uzivatelZaskrtneRadiobuttonMale() {
-        stranka.locator("#gender").check();
+        formularPage.kliknutiNaMaleRadiobutton();
     }
 
     @And("Uzivatel zaskrtne radiobutton female")

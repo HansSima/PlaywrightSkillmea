@@ -9,7 +9,6 @@ public class FormularPage {
         this.stranka = stranka;
     }
 
-
     public void kliknutiNaMaleRadiobutton(){
         stranka.locator(maleRadiobutton).check();
     }
