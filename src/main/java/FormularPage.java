@@ -13,4 +13,17 @@ public class FormularPage {
         stranka.locator(maleRadiobutton).check();
     }
 
+    public void kliknutiNaFemaleRadiobutton(){
+        stranka.locator(femaleRadiobutton).check();
+    }
+
+    public boolean jeFemaleRadiobuttonZaskrtnut(){
+        return stranka.locator(femaleRadiobutton).isChecked();
+    }
+
+    public boolean jeMaleRadiobuttonZaskrtnut(){
+        return stranka.locator(maleRadiobutton).isChecked();
+    }
+
+
 }

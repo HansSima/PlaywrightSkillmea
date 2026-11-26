@@ -42,7 +42,7 @@ public class FormularTest {
 
     @And("Uzivatel zaskrtne radiobutton female")
     public void uzivatelZaskrtneRadiobuttonFemale() {
-        stranka.locator("xpath=/html/body/main/div/div/div[2]/form/div[3]/div/div/div[2]/input").check();
+       formularPage.kliknutiNaFemaleRadiobutton();
     }
 
     @Then("Uzivatel vidi zaskrtnuto female")
