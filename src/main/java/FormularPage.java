@@ -1,5 +1,7 @@
 import com.microsoft.playwright.Page;
 
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+
 public class FormularPage {
     private Page stranka;
     private String maleRadiobutton = "#gender";
@@ -17,12 +19,12 @@ public class FormularPage {
         stranka.locator(femaleRadiobutton).check();
     }
 
-    public boolean jeFemaleRadiobuttonZaskrtnut(){
-        return stranka.locator(femaleRadiobutton).isChecked();
+    public void jeFemaleRadiobuttonZaskrtnut(){
+        assertThat(stranka.locator(femaleRadiobutton)).isChecked();
     }
 
-    public boolean jeMaleRadiobuttonZaskrtnut(){
-        return stranka.locator(maleRadiobutton).isChecked();
+    public void jeMaleRadiobuttonZaskrtnut(){
+        assertThat(stranka.locator(maleRadiobutton)).not().isChecked();
     }
 
 
