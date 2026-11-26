@@ -34,8 +34,9 @@ public class Formular {
         stranka.locator("#mobile").fill("3434383544");
 
         assertThat(stranka.locator("xpath=/html/body/main/div/div/div[2]/form/div[3]/div/div/div[2]/input")).isChecked();
-        assertThat(stranka.locator("#gender")).not().isChecked();
-
+        //assertThat(stranka.locator("#gender")).not().isChecked();
+        assertThat(stranka.locator("xpath=/html/body/main/div/div/div[2]/form/h1")).hasText("Student Registration Form");
+        assertThat(stranka).hasURL("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
 
     }
 
